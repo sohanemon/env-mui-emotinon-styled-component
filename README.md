@@ -44,7 +44,7 @@ const MyButton = styled.button`
 - use of props
 
 ```js
-const MyButton = styled(Button)`
+const MyButton = styled.button`
   background-color: ${(args) => args.bg};
   padding: ${({ p }) => p};
 `;
@@ -58,3 +58,16 @@ return (
 ```
 
 > the passing args names should be same to the props
+
+- modify existing components like `mui`
+
+```js
+const MyButton = styled(Button)`
+  background-color: ${({ bg }) => bg};
+  &:focus {
+    background-color: #e34133;
+  }
+`;
+```
+
+> styling Mui Button

@@ -1,13 +1,13 @@
 import { createContext, useState } from "react";
-import AuthForm from "./user/auth-form";
+import { RouterProvider } from "react-router-dom";
+import router from "./router.jsx";
 export const UserContext = createContext({});
 function App() {
   const [user, setUser] = useState({});
-  console.log(user);
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <div className='App'>
-        <AuthForm />
+      <div>
+        <RouterProvider router={router} />
       </div>
     </UserContext.Provider>
   );
