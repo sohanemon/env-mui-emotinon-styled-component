@@ -12,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import styled from "@emotion/styled";
-import { googlePopup } from "../firebase/auth";
+import { emailLogin, emailSignUp, googlePopup } from "../firebase/auth";
 import { UserContext } from "../App";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -46,10 +46,8 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    emailSignUp(data.get("email"), data.get("password"), setUser);
+    navigate("/home");
   };
 
   return (
